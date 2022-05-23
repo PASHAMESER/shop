@@ -15,7 +15,7 @@ if (username) {
 logoutBtn.addEventListener('click' , function () {
     localStorage.clear()
     setTimeout(()=>{
-        window.location = "../HTML/register.html"
+        window.location = "./HTML/register.html"
     },1000)
 })
 
@@ -87,7 +87,7 @@ function checkLogedUser() {
   if (localStorage.getItem("username")) {
     console.log()
   }else {
-    window.location = "../HTML/login.html"
+    window.location = "./HTML/login.html"
   }
 }
 
