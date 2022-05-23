@@ -15,7 +15,7 @@ if (username) {
 logoutBtn.addEventListener('click' , function () {
     localStorage.clear()
     setTimeout(()=>{
-        window.location = "../HTML/register.html"
+        window.location = "./HTML/register.html"
     },1000)
 })
 
@@ -30,25 +30,25 @@ let Products = [
     id: 1,
     title: "laptop itme",
     size: "large",
-    imageUlr: "../image/pexels-hasan-albari-1229861.jpg"
+    imageUlr: "./image/pexels-hasan-albari-1229861.jpg"
   },
   {
     id: 2,
     title: "headphone itme",
     size: "medium",
-    imageUlr: "../image/pexels-cottonbro-3945667.jpg"
+    imageUlr: "./image/pexels-cottonbro-3945667.jpg"
   },
   {
     id: 3,
     title: "ipad itme",
     size: "small",
-    imageUlr: "../image/pexels-josh-sorenson-1334597.jpg"
+    imageUlr: "./image/pexels-josh-sorenson-1334597.jpg"
   },
   {
     id: 4,
     title: "mobile itme",
     size: "large",
-    imageUlr: "../image/pexels-noah-erickson-404280.jpg"
+    imageUlr: "./image/pexels-noah-erickson-404280.jpg"
   },
 ];
 
@@ -87,7 +87,7 @@ function checkLogedUser() {
   if (localStorage.getItem("username")) {
     console.log()
   }else {
-    window.location = "../HTML/login.html"
+    window.location = "./HTML/login.html"
   }
 }
 

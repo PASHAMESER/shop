@@ -21,7 +21,7 @@ function register (e) {
             localStorage.setItem("email" , email.value)
             localStorage.setItem("password" , password.value)
             setTimeout(()=>{
-                window.location = "../HTML/login.html";
+                window.location = "./login.html";
             },1500)
             
         }
