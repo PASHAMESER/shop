@@ -64,7 +64,7 @@ function drawProductsUi () {
         <span>${itme.size}</span>
     </div>
     <div class="product-itme-actions">
-         <button class="add-to-cart" onclick="checkLogedUser()" onclick="addedToCart(${itme.id})" id="addCart" >Add To Cart</button>
+         <button class="add-to-cart" onclick="addedToCart(${itme.id})" id="addCart" >Add To Cart</button>
         <i class="favorite fa-regular fa-heart"></i>
     </div>
 </div>
