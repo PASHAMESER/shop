@@ -26,7 +26,7 @@ function login (e) {
         getPassword === password.value
       ) {
         setTimeout(() => {
-          window.location = "index.html";
+          window.location = "/index.html";
         }, 1500);
       } else {
         Swal.fire({
