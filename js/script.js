@@ -2,6 +2,7 @@ let userInfo = document.querySelector("#user-info");
 let userDom = document.querySelector("#user");
 let links = document.querySelector("#links");
 let logoutBtn = document.querySelector("#logout");
+// let logoutBtn = document.querySelector("#logout");
 
 
 
@@ -64,7 +65,7 @@ function drawProductsUi () {
         <span>${itme.size}</span>
     </div>
     <div class="product-itme-actions">
-         <button class="add-to-cart" onclick="addedToCart(${itme.id})" id="addCart" >Add To Cart</button>
+        <button class="add-to-cart" onclick="addedToCart(${itme.id})" id="addCart" >Add To Cart</button>
         <i class="favorite fa-regular fa-heart"></i>
     </div>
 </div>
@@ -76,19 +77,16 @@ function drawProductsUi () {
 drawProductsUi()
 
 function addedToCart (id) {
-  let choosenItme = Products.find((itme)=> itme.id === id)
-  cartsProductDivDom.innerHTML += `<p> ${choosenItme.title} </p>`;
-  let cartProductLength = document.querySelectorAll(".carts-products div p")
-  badgeDom.style.display = "block";
-  badgeDom.innerHTML = cartProductLength.length
-}
-
-function checkLogedUser() {
   if (localStorage.getItem("username")) {
-    console.log()
+    let choosenItme = Products.find((itme)=> itme.id === id)
+    cartsProductDivDom.innerHTML += `<p> ${choosenItme.title} </p>`;
+    let cartProductLength = document.querySelectorAll(".carts-products div p")
+    badgeDom.style.display = "block";
+    badgeDom.innerHTML = cartProductLength.length
   }else {
     window.location = "./HTML/login.html"
   }
+
 }
 
 shopingCartIcon.addEventListener('click' , openCartMenu)
