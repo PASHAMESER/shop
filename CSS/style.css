@@ -91,10 +91,11 @@ nav ul#user-info li .carts-products a {
 
 nav li a {
     display: block;
-    color: #fff;
+    color: #ff5722;
     min-width: 60px;
     padding: 5px;
     margin: 0 5px;
+    font-weight: 600;
 }
 
 /* # Form # */

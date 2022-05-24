@@ -1,23 +1,3 @@
-let userInfo = document.querySelector("#user-info");
-let userDom = document.querySelector("#user");
-let links = document.querySelector("#links");
-let logoutBtn = document.querySelector("#logout");
-
-
-
-let username = localStorage.getItem("username");
-if (username) {
-  links.remove();
-  userInfo.style.display = "flex";
-  userDom.innerHTML = username;
-}
-
-logoutBtn.addEventListener('click' , function () {
-    localStorage.clear()
-    setTimeout(()=>{
-        window.location = "./HTML/register.html"
-    },1000)
-})
 
 // Define Product
 let productsDom = document.querySelector(".products");
@@ -30,25 +10,25 @@ let Products = [
     id: 1,
     title: "laptop itme",
     size: "large",
-    imageUlr: "./image/pexels-hasan-albari-1229861.jpg"
+    imageUlr: "../images/laptop .jpg"
   },
   {
     id: 2,
     title: "headphone itme",
     size: "medium",
-    imageUlr: "./image/pexels-cottonbro-3945667.jpg"
+    imageUlr: "../images/headphone .jpg"
   },
   {
     id: 3,
     title: "ipad itme",
     size: "small",
-    imageUlr: "./image/pexels-josh-sorenson-1334597.jpg"
+    imageUlr: "../images/ipad .jpg"
   },
   {
     id: 4,
     title: "mobile itme",
     size: "large",
-    imageUlr: "./image/pexels-noah-erickson-404280.jpg"
+    imageUlr: "../images/mobile .jpg"
   },
 ];
 
@@ -75,20 +55,28 @@ function drawProductsUi () {
 }
 drawProductsUi()
 
-function addedToCart (id) {
-  let choosenItme = Products.find((itme)=> itme.id === id)
-  cartsProductDivDom.innerHTML += `<p> ${choosenItme.title} </p>`;
-  let cartProductLength = document.querySelectorAll(".carts-products div p")
+let addedItme = localStorage.getItem("productsInCart") ? JSON.parse(localStorage.getItem("productsInCart")) : []
+if(addedItme) {
+  addedItme.map(itme =>{
+    cartsProductDivDom.innerHTML += `<p> ${itme.title} </p>`;
+  })
   badgeDom.style.display = "block";
-  badgeDom.innerHTML = cartProductLength.length
+  badgeDom.innerHTML = addedItme.length
 }
 
-function checkLogedUser() {
+function addedToCart (id) {
   if (localStorage.getItem("username")) {
-    console.log()
+    let choosenItme = Products.find((itme)=> itme.id === id)
+    cartsProductDivDom.innerHTML += `<p> ${choosenItme.title} </p>`;
+    addedItme = [...addedItme , choosenItme]
+    localStorage.setItem("productsInCart" , JSON.stringify(addedItme))
+    let cartProductLength = document.querySelectorAll(".carts-products div p")
+    badgeDom.style.display = "block";
+    badgeDom.innerHTML = cartProductLength.length
   }else {
     window.location = "./HTML/login.html"
   }
+
 }
 
 shopingCartIcon.addEventListener('click' , openCartMenu)
